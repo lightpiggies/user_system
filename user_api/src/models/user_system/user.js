@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const moment = require('moment');
 const Sequelize = require('sequelize');
 const Sequelizor = require('../../libs/db_connection/user_system_connection');
 
@@ -49,6 +50,12 @@ const User = Sequelizor.define(
     },
     birthday: {
       type: Sequelize.DATE,
+      set: function(val) {
+        this.setDataValue('birthday', new Date(moment(val)));
+      },
+      get: function() {
+        return moment(this.getDataValue('birthday')).format('YYYY-MM-DD');
+      },
     },
   },
   {
@@ -62,5 +69,12 @@ const User = Sequelizor.define(
 );
 
 User.GENDERS = GENDERS;
+
+User.prototype.internalOutput = function (){
+  const data = this.toJSON();
+  return  {
+    ..._.pick(data, ['nickname', 'avatar', 'area_code', 'phone_number', 'email', 'gender', 'birthday']),
+  };
+};
 
 module.exports = User;

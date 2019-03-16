@@ -32,7 +32,7 @@ const env = {
   PROD: ['prod', 'production'],
 };
 
-let config = Lodash.merge({}, common);
+let config = _.merge({}, common);
 if (env.PROD.includes(process.env.NODE_ENV)) config = _.merge(config, prodConf);
 else config = _.merge(config, stgConf);
 
