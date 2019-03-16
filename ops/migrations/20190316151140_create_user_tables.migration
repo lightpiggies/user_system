@@ -4,6 +4,7 @@ CREATE TABLE `user_login_infos` (
     `uid` int(11) NOT NULL,
     `username` varchar(32) NOT NULL,
     `password` varchar(255) NOT NULL,
+    `last_login` DATETIME,
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`uid`)
