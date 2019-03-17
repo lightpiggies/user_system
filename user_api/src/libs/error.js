@@ -6,6 +6,8 @@ const CODES = {
   UNAUTHORIZED: 401,
   FORBIDDEN: 403,
   NOT_FOUND: 404,
+  USER_NOT_EXIST: 11001,
+  USER_PASSWORD_ERR: 11002,
 };
 
 class UserError extends Error {
