@@ -5,8 +5,8 @@ CREATE TABLE `user_login_infos` (
     `username` varchar(32) NOT NULL,
     `password` varchar(255) NOT NULL,
     `last_login` DATETIME,
-    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
     PRIMARY KEY (`uid`),
     UNIQUE (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -20,8 +20,8 @@ CREATE TABLE `users` (
     `email` varchar(255),
     `gender` int(2),
     `birthday` DATETIME,
-    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
     PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 """
